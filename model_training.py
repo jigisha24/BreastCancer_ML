@@ -28,12 +28,12 @@ model.fit(X_train_scaled, y_train)
 y_pred = model.predict(X_test_scaled)
 print("Accuracy:", accuracy_score(y_test, y_pred))
 
-# ✅ Save in backend folder
+
 joblib.dump(model, "backend/model.pkl")
 joblib.dump(scaler, "backend/scaler.pkl")
 
 #Save feature means (used to fill missing 23 features)
-feature_means = X.mean(axis=0)       # shape (30,)
+feature_means = X.mean(axis=0)     
 joblib.dump(feature_means, "backend/feature_means.pkl")
 
 print("Saved: backend/model.pkl, backend/scaler.pkl, backend/feature_means.pkl")
